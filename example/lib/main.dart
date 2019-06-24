@@ -31,27 +31,14 @@ class _ChewieDemoState extends State<ChewieDemo> {
   void initState() {
     super.initState();
     _videoPlayerController1 = VideoPlayerController.network(
-        'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4');
-    _videoPlayerController2 = VideoPlayerController.network(
-        'https://www.sample-videos.com/video123/mp4/480/asdasdas.mp4');
+        'http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_20mb.mp4');
+
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController1,
       aspectRatio: 3 / 2,
       autoPlay: true,
       looping: true,
-      // Try playing around with some of these other options:
 
-      // showControls: false,
-      // materialProgressColors: ChewieProgressColors(
-      //   playedColor: Colors.red,
-      //   handleColor: Colors.blue,
-      //   backgroundColor: Colors.grey,
-      //   bufferedColor: Colors.lightGreen,
-      // ),
-      // placeholder: Container(
-      //   color: Colors.grey,
-      // ),
-      // autoInitialize: true,
     );
   }
 
@@ -83,12 +70,12 @@ class _ChewieDemoState extends State<ChewieDemo> {
                 ),
               ),
             ),
-            FlatButton(
-              onPressed: () {
-                _chewieController.enterFullScreen();
-              },
-              child: Text('Fullscreen'),
-            ),
+//            FlatButton(
+//              onPressed: () {
+//                _chewieController.enterFullScreen();
+//              },
+//              child: Text('Fullscreen'),
+//            ),
             Row(
               children: <Widget>[
                 Expanded(
@@ -106,10 +93,7 @@ class _ChewieDemoState extends State<ChewieDemo> {
                         );
                       });
                     },
-                    child: Padding(
-                      child: Text("Video 1"),
-                      padding: EdgeInsets.symmetric(vertical: 16.0),
-                    ),
+
                   ),
                 ),
                 Expanded(
@@ -127,44 +111,12 @@ class _ChewieDemoState extends State<ChewieDemo> {
                         );
                       });
                     },
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 16.0),
-                      child: Text("Error Video"),
-                    ),
+
                   ),
                 )
               ],
             ),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: FlatButton(
-                    onPressed: () {
-                      setState(() {
-                        _platform = TargetPlatform.android;
-                      });
-                    },
-                    child: Padding(
-                      child: Text("Android controls"),
-                      padding: EdgeInsets.symmetric(vertical: 16.0),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: FlatButton(
-                    onPressed: () {
-                      setState(() {
-                        _platform = TargetPlatform.iOS;
-                      });
-                    },
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 16.0),
-                      child: Text("iOS controls"),
-                    ),
-                  ),
-                )
-              ],
-            )
+
           ],
         ),
       ),
